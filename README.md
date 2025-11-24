@@ -74,7 +74,7 @@ python main.py
 
 - **Yahoo Finance API** via `yfinance` library
 - **Stocks Analyzed**:
+
   - Technology Sector: AAPL (Apple), MSFT (Microsoft), GOOGL (Google)
   - Financial Sector: JPM (JPMorgan), BAC (Bank of America), GS (Goldman Sachs)
-- **Time Period**: 2020-2023 (4 years of historical data)
 - **Data Frequency**: Daily closing prices

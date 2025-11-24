@@ -28,6 +28,14 @@ This project analyzes the behavior of different stock market sectors by fetching
 
 ## 🚀 Getting Started
 
+### Prerequisites
+
+- **Python 3.12** (Recommended)
+- pip package manager
+- Internet connection (for fetching stock data)
+
+> ⚠️ **Important Note**: This project requires `pyarrow` which currently has compatibility issues with Python 3.14. Please use **Python 3.12** for the best experience.
+
 ### Installation
 
 1. **Clone the repository**
@@ -37,18 +45,27 @@ gh repo clone alieen99/Market-Pulse-Python-Project
 cd Market-Pulse-Python-Project
 ```
 
-2. **Create virtual environment**
+2. **Create virtual environment with Python 3.12**
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+# Make sure you're using Python 3.12
+python3.12 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-3. **Install dependencies**
+3. **Install PyArrow first (required for Streamlit)**
+
+```bash
+pip install pyarrow
+```
+
+4. **Install remaining dependencies**
 
 ```bash
 pip install -r requirements.txt
 ```
+
+> **Troubleshooting**: If you encounter issues with `pyarrow` on Python 3.14, please downgrade to Python 3.12. The `pyarrow` library is required by Streamlit and currently doesn't support Python 3.14.
 
 ### Running the Project
 
@@ -77,4 +94,5 @@ python main.py
 
   - Technology Sector: AAPL (Apple), MSFT (Microsoft), GOOGL (Google)
   - Financial Sector: JPM (JPMorgan), BAC (Bank of America), GS (Goldman Sachs)
+
 - **Data Frequency**: Daily closing prices

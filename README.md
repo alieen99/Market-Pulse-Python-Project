@@ -48,7 +48,6 @@ cd Market-Pulse-Python-Project
 2. **Create virtual environment with Python 3.12**
 
 ```bash
-# Make sure you're using Python 3.12
 python3.12 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
@@ -65,25 +64,28 @@ pip install pyarrow
 pip install -r requirements.txt
 ```
 
-> **Troubleshooting**: If you encounter issues with `pyarrow` on Python 3.14, please downgrade to Python 3.12. The `pyarrow` library is required by Streamlit and currently doesn't support Python 3.14.
+> **Troubleshooting**: If you encounter issues with `pyarrow` on Python 3.14, please downgrade to Python 3.12.
 
 ### Running the Project
 
 #### Option 1: Jupyter Notebook (Recommended)
 
 ```bash
-jupyter notebook
+source venv/bin/activate
+jupyter notebook notebooks/example_analysis.ipynb
 ```
 
 #### Option 2: Streamlit Dashboard
 
 ```bash
+source venv/bin/activate
 streamlit run app/streamlit_app.py
 ```
 
 #### Option 3: Command Line
 
 ```bash
+source venv/bin/activate
 python main.py
 ```
 
@@ -91,8 +93,45 @@ python main.py
 
 - **Yahoo Finance API** via `yfinance` library
 - **Stocks Analyzed**:
-
   - Technology Sector: AAPL (Apple), MSFT (Microsoft), GOOGL (Google)
   - Financial Sector: JPM (JPMorgan), BAC (Bank of America), GS (Goldman Sachs)
-
+- **Time Period**: 2020-2025 (5+ years of historical data)
 - **Data Frequency**: Daily closing prices
+
+## 🔬 Methodology
+
+### 1. Data Collection
+
+- Fetch historical stock prices using yfinance API
+- Handle missing data and market holidays
+- Save raw data for reproducibility
+
+### 2. Data Processing
+
+- Calculate daily returns: `(Price_t - Price_t-1) / Price_t-1`
+- Handle missing values using forward fill
+- Remove outliers using IQR method
+
+### 3. Statistical Analysis
+
+- **Descriptive Statistics**: Mean, median, std deviation of returns
+- **Correlation Analysis**: Pearson correlation between stocks
+- **Volatility Calculation**: Rolling 30-day annualized volatility
+- **Risk-Return Metrics**: Sharpe ratio, maximum drawdown
+
+### 4. Visualization
+
+- Correlation heatmaps
+- Time series plots of prices and returns
+- Volatility charts
+- Risk-return scatter plots
+- Distribution plots
+
+## 📈 Key Findings
+
+- Correlation patterns between tech and financial sectors
+- Volatility trends over the analysis period
+- Risk-return profiles of individual stocks
+- Sector-specific behavior during market events
+
+**Note**: This project is submitted as part of the Coding for Data Science and Data Management course.

@@ -16,6 +16,7 @@ from visualization import (
 )
 import pandas as pd
 import matplotlib.pyplot as plt
+from datetime import datetime, timedelta
 
 
 def main():
@@ -29,10 +30,11 @@ def main():
     
     # Fetch data
     print("\n1. Fetching stock data...")
+    end_date = datetime.now().strftime('%Y-%m-%d')
     stock_data = fetch_stock_data(
         tickers=all_stocks,
         start_date='2020-01-01',
-        end_date='2025-11-20'
+        end_date=end_date
     )
     
     # Save raw data
